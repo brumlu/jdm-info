@@ -52,7 +52,7 @@ router.post('/login', async (req, res) => {
     if (!valid) return res.status(401).json({ message: 'Senha incorreta' });
 
     // Gerar Token JWT (JSON Web Token) para autenticação futura, não implementado aqui, mas recomendado para produção
-    // Futuramente fazer o token alterar ao usuario mudar senha etc como no Discord
+    // Futuramente fazer adicionar privilegio na db para alterar usuario e mudar senha(put e delete)
 
     const token = jwt.sign({ id: user.id }, JWT_SECRET, { expiresIn: '7d' });
     res.status(200).json(token);
